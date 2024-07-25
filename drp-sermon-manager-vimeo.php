@@ -24,7 +24,6 @@ namespace DRPSMVimeo;
  * the Free Software Foundation, either version 2 of the License, or
  * any later version.
  *
- *
  */
 
 defined('ABSPATH') or exit;
