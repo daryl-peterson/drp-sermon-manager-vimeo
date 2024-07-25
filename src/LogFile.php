@@ -27,13 +27,14 @@ class LogFile
     public function checkFileSize(string $file): void
     {
         try {
-            $fs = filesize($file);
+            $fs = @filesize($file);
 
-            if (!$fs || ($fs < 2000000)) {
+            if (!$fs || ($fs > 2000000)) {
+                $this->truncate($file);
+
                 return;
             }
             // @codeCoverageIgnoreStart
-            $this->truncate($file);
         } catch (\Throwable $th) {
             // @codeCoverageIgnoreEnd
         }
