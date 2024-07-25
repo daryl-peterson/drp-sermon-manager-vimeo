@@ -5,7 +5,7 @@ namespace DRPSMVimeo;
 use DRPSMVimeo\Core\Abstracts\VimeoAbstract;
 
 /**
- * Class description.
+ * User vimeo data.
  *
  * @category
  *

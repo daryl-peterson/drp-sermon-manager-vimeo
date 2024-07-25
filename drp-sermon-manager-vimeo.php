@@ -5,9 +5,9 @@ namespace DRPSMVimeo;
 /*
  * ----------------------------------------------------------------------------
  * @wordpress-plugin
- * Plugin Name:         Sermon Manager Vimeo
+ * Plugin Name:         DRP Sermon Manager Vimeo
  * Plugin URI:
- * Description:         Update Sermon Manager video link when sermon is published to Vimeo. Works great when sermons are scheduled to publish !
+ * Description:         Update Sermon Manager video link from Vimeo when sermon is published.
  * Version:             1.0.0
  * Author:              Daryl Peterson
  * Author URI:
