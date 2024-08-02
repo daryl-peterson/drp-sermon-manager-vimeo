@@ -1,7 +1,7 @@
 {
-    "name": "dpeterson/cp-vimeo",
-    "description": "CP Vimeo",
-    "type": "library",
+    "name": "daryl-peterson/drp-sermon-manager-vimeo",
+    "description": "Vimeo for Sermon Manager",
+    "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
