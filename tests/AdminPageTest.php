@@ -16,45 +16,43 @@ use DRPSMVimeo\App;
  *
  * @since       1.0.0
  */
-class AdminPageTest extends BaseTest
-{
-    public function setup(): void
-    {
-        if (!defined('WP_ADMIN')) {
-            define('WP_ADMIN', true);
-        }
+class AdminPageTest extends BaseTest {
 
-        if (!function_exists('\add_submenu_page')) {
-            $file = ABSPATH.'wp-admin/includes/plugin.php';
-            require_once $file;
-        }
+	public function setUp(): void {
+		parent::setUp();
+		if ( ! defined( 'WP_ADMIN' ) ) {
+			define( 'WP_ADMIN', true );
+		}
 
-        if (!function_exists('\add_settings_section')) {
-            $file = ABSPATH.'wp-admin/includes/template.php';
-            require_once $file;
-        }
-    }
+		if ( ! function_exists( '\add_submenu_page' ) ) {
+			$file = ABSPATH . 'wp-admin/includes/plugin.php';
+			require_once $file;
+		}
 
-    public function testConstructor()
-    {
-        $obj = new AdminPage();
-        $this->assertInstanceOf(AdminPage::class, $obj);
-    }
+		if ( ! function_exists( '\add_settings_section' ) ) {
+			$file = ABSPATH . 'wp-admin/includes/template.php';
+			require_once $file;
+		}
+	}
 
-    public function tester()
-    {
-        $obj = App::getAdminPage();
-        $obj->init();
-        do_action('admin_init');
-        do_action('admin_menu', '');
+	public function testConstructor() {
+		$obj = new AdminPage();
+		$this->assertInstanceOf( AdminPage::class, $obj );
+	}
 
-        ob_start();
-        $obj->showAdminPage();
-        $page = ob_end_clean();
-        $this->assertNotNull($page);
+	public function tester() {
+		$obj = App::getAdminPage();
+		$obj->init();
+		do_action( 'admin_init' );
+		do_action( 'admin_menu', '' );
 
-        $settings = get_option($obj->settingsName);
-        $result = $obj->sanitize($settings);
-        $this->assertIsArray($result);
-    }
+		ob_start();
+		$obj->showAdminPage();
+		$page = ob_end_clean();
+		$this->assertNotNull( $page );
+
+		$settings = get_option( $obj->settingsName );
+		$result   = $obj->sanitize( $settings );
+		$this->assertIsArray( $result );
+	}
 }
